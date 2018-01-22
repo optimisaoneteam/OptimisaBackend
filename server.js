@@ -12,11 +12,15 @@ const app = express()
 //utilzamos mongoose para poner en marcha una BD y sus propiedades
 const mongoose = require('mongoose');
 const config = require('./configuration/config')
+const registration = require('./routes/insert')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
 //app.use('./api', api)
 //usamos el modulo api, que creamos en ruta
+app.post('/api/register', registration.Registration)
+
 
 //se conecta a la base de datos
 mongoose.connect(config.db, (err, res) => {
@@ -31,6 +35,5 @@ mongoose.connect(config.db, (err, res) => {
     app.get('/', function (req, res) {
     res.send('Hello Optimisa!');
     });
-})
 
-module.exports = app
+})
