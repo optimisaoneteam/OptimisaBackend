@@ -5,7 +5,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-//const api = require('./routes/index')
 //en este fichero pedimos la informacion de configuracion
 //y la info de la conf con express
 //para usar nuevas variables, bueas practicas
@@ -16,11 +15,11 @@ const registration = require('./routes/insert')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
-//app.use('./api', api)
 //usamos el modulo api, que creamos en ruta
-app.post('/api/register', registration.Registration)
 
+//enlace localhost and llamada a la clase.nombre del metodo
+app.post('/api/register', registration.Registration)
+app.get('/api/register', registration.getRegister)
 
 //se conecta a la base de datos
 mongoose.connect(config.db, (err, res) => {

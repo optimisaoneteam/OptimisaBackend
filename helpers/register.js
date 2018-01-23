@@ -6,9 +6,10 @@ const Schema = mongoose.Schema
 
 const RegisterSchema = Schema({
 //crearemos los campos
-  id: Number,
-  date: String,
-  description: String
+  mac: String,
+  latitud: String,
+  longitud: String
+
 })
 
 module.exports = mongoose.model('register', RegisterSchema)

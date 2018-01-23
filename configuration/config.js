@@ -2,5 +2,5 @@
 //solo elemtos de configuración
 module.exports = {
   port : process.env.PORT || 8090,
-  db: process.env.MONGODB || 'mongodb://localhost:27017/shop'
+  db: process.env.MONGODB || 'mongodb://localhost:27017/registration'
 }
