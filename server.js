@@ -12,6 +12,7 @@ const app = express()
 const mongoose = require('mongoose');
 const config = require('./configuration/config')
 const registration = require('./routes/insert')
+const display = require('./routes/display')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -19,7 +20,7 @@ app.use(bodyParser.json())
 
 //enlace localhost and llamada a la clase.nombre del metodo
 app.post('/api/register', registration.Registration)
-app.get('/api/register', registration.getRegister)
+app.get('/api/register', display.getRegister)
 
 //se conecta a la base de datos
 mongoose.connect(config.db, (err, res) => {

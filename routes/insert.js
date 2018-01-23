@@ -18,12 +18,4 @@ function Registration(req, res){
 }
 
 //funcion que permite hacer get a la info registreada
-function getRegister(req, res){
-  register.find({}, (err, registers)=>{
-    if(err) return res.status(500).send({message:`Error al realizar peticion: ${err}`})
-    if(!registers) return res.status(404).send({message:`No existen registros `})
-    res.status(200).send({registers})
-  });
-}
-
-module.exports = { Registration, getRegister }
+module.exports = { Registration}
