@@ -14,6 +14,7 @@ const config = require('./configuration/config')
 const registration = require('./routes/insert')
 const display = require('./routes/display')
 
+const testmac = require('./helpers/testmac')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 //usamos el modulo api, que creamos en ruta
@@ -21,7 +22,8 @@ app.use(bodyParser.json())
 //enlace localhost and llamada a la clase.nombre del metodo
 app.post('/api/register', registration.Registration)
 app.get('/api/register', display.getRegister)
-
+//idealmente que se llame obtener evento
+app.get('/api/register',testmac.showMac)
 //se conecta a la base de datos
 mongoose.connect(config.db, (err, res) => {
     if(err){

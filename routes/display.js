@@ -1,6 +1,6 @@
 'use strict'
 //llamada al schema registro creado en la clase register
-const register = require('../helpers/register')
+const register = require('../helpers/esquemaRegister')
 
 
 
