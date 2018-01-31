@@ -1,14 +1,17 @@
 'use strict'
 //llamada al schema registro creado en la clase register
-const register = require('../helpers/esquemaRegister')
+const schema = require('../helpers/schemaRegister')
 
+const schemaUsers = require('../helpers/schemaUsers')
 //funcion que permite hacer post
-function Registration(req, res){
-  console.log('POST /api/register')
-  //registrar_evento
+
+function saveEvent(req, res){//almacenaremos en la BD un producto y sus caracteristicas
+  console.log('POST /api/insert')//registrar_evento
   console.log(req.body)
-  //almacenaremos en la BD un producto y sus caracteristicas
-  let rec = new register()
+
+  let rec = new schema()
+  let usermac = new schemaUsers()
+
   rec.mac = req.body.mac
   rec.latitud = req.body.lat
   rec.longitud = req.body.lon
@@ -20,5 +23,23 @@ function Registration(req, res){
     res.status(200).send({registers: registertStored})
   })
 }
+/*function saveEvent(req, res, callBack){
+  let usermac = new schemaUsers()
+  let registermac = new schemaRegister()
+  if(usermac.mac == registermac.mac){
+   console.log('el usuario existe en la base de datos'+usermac.name +
+   ' y su dirección mac :'+usermac.mac)
 
-module.exports = { Registration}
+   let rec = new schema()
+   rec.mac = req.body.mac
+   rec.latitud = req.body.lat
+   rec.longitud = req.body.lon
+  callback();
+
+}
+saveEvent(req, res,function(rq, res){
+  console.log("")
+})*/
+
+
+module.exports = { saveEvent}

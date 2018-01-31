@@ -12,4 +12,5 @@ const RegisterSchema = Schema({
 
 })
 
-module.exports = mongoose.model('register', RegisterSchema)
+
+module.exports = mongoose.model('registers', RegisterSchema)//parametros: nombre de la coleccion y nombre del esquema
